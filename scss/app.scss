@@ -73,3 +73,57 @@ button {
     }
   }
 }
+
+// 3) PROPRIETÀ ANNIDATE/NIDIFICATE CON PREFISSO COMUNE
+
+p.andrea {
+  font: {
+    size: 1.2em;
+    weight: bold;
+    family: 'sans-serif';
+  }
+}
+
+// 4) VARIABILI
+// Le variabili in SASS, come nei linguaggi di programmazione, servono al fine di MEMORIZZARE dei valori,
+// e richiamarli in seguito, non scrivendo a mano il valore ma utilizzando il nome della variabile.
+// in SASS le "variabili" non vengono riassegnate quasi mai... concettualmente sono più simili a delle costanti
+
+// cosa possiamo assegnare ad una variabile? quali sono i "tipi" del linguaggio SASS?
+// - numeri (0, 100, 10px, 5em, 2rem)
+// - stringhe ("ciao")
+// - colori (red, green, #ffcc00, rgba(0, 0, 0, 0.3))
+// - boolean (true/false)
+// - null
+// - liste di valori (5px 10px, 0.5em 1em 1em 0.5em)
+
+// una variabile in sass si chiama/dichiara con il simbolo $:
+$main-margin-value: 20px;
+$primary-color: blue;
+
+$footer-height: 80px;
+
+footer {
+  height: $footer-height;
+}
+
+article {
+  margin-top: $main-margin-value;
+  margin-bottom: $footer-height + 10px; // 90px
+  p {
+    color: $primary-color;
+  }
+}
+
+// in SASS si possono utilizzare gli operatori aritmetici: + - * /
+// < > <= >= == !=
+
+// 5) PARTIALS
+// SASS ci permette di lavorare su singoli, piccoli files
+// ognuno di questi partials servirà a contenere gli stili o gli strumenti di SASS
+// atti a risolvere una specifica situazione o a contenere delle specifiche porzioni di codice
+// questo rende il lavoro più semplice da gestire e gli stili più facili da organizzare/ritrovare
+
+// i file partials hanno il nome che comincia obbligatoriamente con il carattere _
+// es. _reset.scss, _header.scss, etc.
+// i file partials NON verranno automaticamente compilati in .css e .css.map
