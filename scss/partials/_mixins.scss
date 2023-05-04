@@ -35,3 +35,37 @@
   background-color: $hover-color;
   color: $text-color;
 }
+
+// ESEMPIO DI INTERPOLAZIONE STRINGHE IN SASS
+
+@mixin textElement($value) {
+  font-size: $value;
+}
+
+@mixin customTextElement($propertyType, $value) {
+  font-#{$propertyType}: $value;
+}
+
+// in un altro file...
+p.first {
+  @include textElement(12px);
+}
+
+p.second {
+  @include customTextElement('size', 12px);
+}
+
+p.third {
+  @include customTextElement('family', 'sans-serif');
+}
+
+// ESEMPIO DI CICLI IN SASS
+$sizes: 10px, 30px, 60px;
+// sizes è un "array" in SASS
+
+@each $size in $sizes {
+  // .image-30px, .image-10px, etc.
+  .image-#{$size} {
+    width: $size;
+  }
+}
